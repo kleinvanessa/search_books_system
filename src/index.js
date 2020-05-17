@@ -2,12 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Favorite from './container/Favorite';
+import moreInfo from './container/moreInfo';
 import * as serviceWorker from './serviceWorker';
+import { HashRouter} from 'react-router-dom';
+import {Router, Route, IndexRoute} from 'react-router';
+import Searchbooks from './container/Search';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  
+  <HashRouter>
+    <Route path = "/" component = {App}/>
+      <Route path = "/Favorite" component = {Favorite} />
+      <Route path = "/Searchbooks" component = {Searchbooks} />
+      <Route path = "/moreInfo" component = {moreInfo} />
+    
+    
+</HashRouter>,
+  //<Router history={hashHistory}></Router>,
+
   document.getElementById('root')
 );
 
