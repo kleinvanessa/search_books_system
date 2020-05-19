@@ -1,20 +1,50 @@
 import React, { Component } from 'react';
 import Infocard from '../components/InfoCard';
+import PropTypes from "prop-types";
+import Spinner from "../components/Spinner";
 
-export default class Searchbooks extends Component {
-    infoCardReleases = {
-        title: 'Titulo do livro',
-        text: 'Esta é a descrição do livro que aparece acima.',
-        //moreInfo: () => alert('Saima MAIS +'),
-        //favorite: () => alert('FAVORITOS')
+
+  
+
+const Searchbooks = ({ loading, books,key }) => {
+    if (loading) {
+      return <Spinner />;
     }
-    render(){
         return(
-            <div className="contaniner text-center">
-                <div className="row">
-                    <Infocard {...this.infoCardReleases}/>
-                </div>
-            </div>
+
+<div className="contaniner text-center">
+<h1>{key}</h1>
+      {books && books.length > 0 && (
+        <div className="books">
+          {books.map(book => (
+            <Infocard/>
+               //key={book.id} book={book.volumeInfo} />
+          ))}
+        </div>
+      )}
+      {!books && (
+        <div className="books">
+          <p className="lead text-center">
+            Sorry
+            <span role="img" aria-label="cry emoji">
+              😪
+            </span>
+            . No search results found. Try something else.
+          </p>
+        </div>
+      )}
+    </div>
+
+
+           
+       
+                    
         );
-    }
+    
 };
+Searchbooks.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    books: PropTypes.array.isRequired,
+    key: PropTypes.string.isRequired
+  };
+export default Searchbooks;

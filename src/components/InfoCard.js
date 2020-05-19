@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 const Infocard = (props) => {
     return(
+<div className="container">     
     <div className="col-12 col-sm-4">
         <div className="card" style={{width: '18rem'}}>
             <img className="card-img-top" src="https://ideiasradicais.com.br/wp-content/uploads/2019/07/maskarad-1200x799.jpg"  alt="..."/>
@@ -16,6 +17,7 @@ const Infocard = (props) => {
         </div>
 
     </div>
+</div>
     );
 };
 

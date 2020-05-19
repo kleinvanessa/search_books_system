@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import { HashRouter} from 'react-router-dom';
 import {Router, Route, IndexRoute} from 'react-router';
 import Searchbooks from './container/Search';
+import about from './container/about';
 
 ReactDOM.render(
   
@@ -16,6 +17,7 @@ ReactDOM.render(
       <Route path = "/Favorite" component = {Favorite} />
       <Route path = "/Searchbooks" component = {Searchbooks} />
       <Route path = "/moreInfo" component = {moreInfo} />
+      <Route path = "/about" component = {about} />
     
     
 </HashRouter>,
