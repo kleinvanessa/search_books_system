@@ -6,18 +6,18 @@ import Spinner from "../components/Spinner";
 
   
 
-const Searchbooks = ({ loading, books,key }) => {
+const Searchbooks = ({ loading, books }) => {
     if (loading) {
       return <Spinner />;
     }
         return(
 
 <div className="contaniner text-center">
-<h1>{key}</h1>
+
       {books && books.length > 0 && (
         <div className="books">
           {books.map(book => (
-            <Infocard/>
+            <Infocard key={book.id} book={book.volumeInfo}/>
                //key={book.id} book={book.volumeInfo} />
           ))}
         </div>

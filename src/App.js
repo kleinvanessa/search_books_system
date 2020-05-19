@@ -14,41 +14,30 @@ export class App extends Component {
     error: null
   };
   searchBooks = async key => {
-    //alert(key);
     this.setState({ loading: true });
     const res = await axios.get(
-      'https://www.googleapis.com/books/v1/volumes?q=${key}&startIndex=0&maxResults=40'
+      `https://www.googleapis.com/books/v1/volumes?q=${key}&startIndex=0&maxResults=40`
     );
     this.setState({ books: res.data.items, loading: false });
   };
+  clearBooks = () => {
+    this.setState({books: [], loading: false})
+  }
   render() {
     const { books, loading, error , key} = this.state;
     // const logo = 'Busque Books'
     return (
-      <Router>
-        <div>
-         
-          <div className="container">
-            
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <Fragment>
+      <div className="container text-center">
+        <div className="App"> 
                      <Navbar searchBooks={this.searchBooks}
           books={books}
           loading={loading}/>
           <h3><center>#FIQUEEMCASA</center></h3>
                     <Searchbooks books={books} loading={loading}/>
-                  </Fragment>
-                )}
-              />
-              
-            </Switch>
+                 
           </div>
         </div>
-      </Router>
+      
 
 /*
       ------

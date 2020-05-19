@@ -12,6 +12,7 @@ export class NavBar extends Component {
         searchBooks: PropTypes.func.isRequired,
         books: PropTypes.array.isRequired,
         loading: PropTypes.bool.isRequired,
+        clearBooks: PropTypes.func.isRequired
     };
     onChange = e => {
         this.setState({ key: e.target.value });
@@ -29,7 +30,7 @@ export class NavBar extends Component {
         //  alert(this.state.loading);
          // return <Searchbooks key={this.state.key}/>;
          
-          //this.setState({ key: "" });
+          this.setState({ key: "" });
           //if (1==1) {
             //return <Spinner />;
           //}
@@ -39,9 +40,10 @@ export class NavBar extends Component {
        // }
       };
     render() {
+        const { clearBooks, books } = this.props;
         return (
             <nav className="navbar navbar-expand-lg navbar-dark color-nav">
-                <Link to='/' classNameName="navbar-brand" href="#">Busque Books</Link>
+                 <a  classNameName="navbar-brand" onClick={clearBooks}  href="#">Busque Books </a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
